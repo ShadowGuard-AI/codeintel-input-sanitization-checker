@@ -1,7 +1,6 @@
 import argparse
 import logging
 import subprocess
-import shlex
 import os
 import sys
 
@@ -59,7 +58,11 @@ def run_tool(tool, target, ignore=None, output=None, offensive=False):
             if output:
               command.extend(["--output-file", output])
         elif tool == "pylint":
-            command = ["pylint", target, "--disable=all", "--enable=security", "--reports=n"] #disable reports for easier parsing and enable security flags
+            # Pylint has no check category called "security": passing
+            # --enable=security made every pylint run abort with an
+            # unknown-option-value error (exit 32) before linting anything.
+            # The default checks run instead, with reports off.
+            command = ["pylint", target, "--reports=n"]
             if ignore:
               command.extend(["--ignore", ",".join(ignore)])
             if output:
@@ -156,7 +159,10 @@ def main():
     results = {}
     for tool in args.tools:
         logging.info(f"Running {tool} on {args.target}...")
-        return_code, stdout, stderr = run_tool(tool, args.target, args.ignore, args.output, args.offensive)
+        # The combined output file belongs to main, not to each tool:
+        # passing it down made every tool write the same path, and the
+        # combined write afterwards overwrote whatever a tool had put there.
+        return_code, stdout, stderr = run_tool(tool, args.target, args.ignore, None, args.offensive)
         results[tool] = {"return_code": return_code, "stdout": stdout, "stderr": stderr}
 
         if return_code != 0:
