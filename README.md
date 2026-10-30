@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # codeintel-Input-Sanitization-Checker
 Analyzes code to identify potential vulnerabilities arising from missing or inadequate input sanitization. Detects places where user-provided input is directly used in sensitive operations, such as database queries or system commands, without proper sanitization. - Focused on Tools for static code analysis, vulnerability scanning, and code quality assurance
 
