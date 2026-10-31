@@ -43,7 +43,7 @@ def run_tool(tool, target, ignore=None, output=None, offensive=False):
         if tool == "bandit":
             command = ["bandit", "-r", target, "-q"] # -q for quiet mode
             if offensive:
-                command.extend(["-s", "B101,B301,B603,B605,B608"]) # Example offensive rules, expand as needed
+                command.extend(["-t", "B101,B301,B603,B605,B608"]) # Limit to the offensive checks with the include option (-t), not the skip option (-s).
             if ignore:
               for i in ignore:
                 command.extend(["-x", i])
@@ -80,14 +80,14 @@ def run_tool(tool, target, ignore=None, output=None, offensive=False):
         stderr_str = stderr.decode("utf-8", errors="ignore")
         logging.debug(f"Tool output (stdout):\n{stdout_str}")
         logging.debug(f"Tool output (stderr):\n{stderr_str}")
-        return return_code, stdout_str, stderr_str
+        return return_code, stdout_str, stderr_str, False
 
     except FileNotFoundError as e:
         logging.error(f"Error: {tool} not found. Please ensure it is installed and in your PATH.")
-        return 1, "", str(e)
+        return 1, "", str(e), True
     except Exception as e:
         logging.error(f"An unexpected error occurred while running {tool}: {e}")
-        return 1, "", str(e)
+        return 1, "", str(e), True
 
 
 
@@ -157,13 +157,16 @@ def main():
         sys.exit(1)
 
     results = {}
+    failed_tools = []
     for tool in args.tools:
         logging.info(f"Running {tool} on {args.target}...")
         # The combined output file belongs to main, not to each tool:
         # passing it down made every tool write the same path, and the
         # combined write afterwards overwrote whatever a tool had put there.
-        return_code, stdout, stderr = run_tool(tool, args.target, args.ignore, None, args.offensive)
+        return_code, stdout, stderr, failed_to_run = run_tool(tool, args.target, args.ignore, None, args.offensive)
         results[tool] = {"return_code": return_code, "stdout": stdout, "stderr": stderr}
+        if failed_to_run:
+            failed_tools.append(tool)
 
         if return_code != 0:
             logging.warning(f"{tool} returned a non-zero exit code: {return_code}")
@@ -191,6 +194,10 @@ def main():
             print(f"Stdout:\n{result['stdout']}")
             print(f"Stderr:\n{result['stderr']}")
             print("-" * 40)
+
+    if failed_tools:
+        logging.error(f"Analysis incomplete: these tools were missing or failed to run: {', '.join(failed_tools)}")
+        sys.exit(1)
 
     logging.info("Analysis complete.")
 
