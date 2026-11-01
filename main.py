@@ -132,6 +132,9 @@ def validate_ignore_paths(ignore_paths):
     if ignore_paths is None:
         return True
 
+    # I require every ignore path to exist. An ignore written for
+    # a tree on another machine, or a simple typo, fails the whole
+    # run before any tool starts, which is strict on purpose.
     for path in ignore_paths:
         if not os.path.exists(path):
             logging.error(f"Error: Ignore path '{path}' does not exist.")
@@ -168,6 +171,9 @@ def main():
         if failed_to_run:
             failed_tools.append(tool)
 
+        # I warn on a non zero code and keep going. A tool that found
+        # real problems and a tool that merely has findings both land
+        # here, and neither one changes this program's own exit code.
         if return_code != 0:
             logging.warning(f"{tool} returned a non-zero exit code: {return_code}")
             if stderr:
@@ -195,6 +201,9 @@ def main():
             print(f"Stderr:\n{result['stderr']}")
             print("-" * 40)
 
+    # Only a tool that could not run at all fails the run. That
+    # split is the whole contract: findings are data for the
+    # reader, a missing tool is a broken scan.
     if failed_tools:
         logging.error(f"Analysis incomplete: these tools were missing or failed to run: {', '.join(failed_tools)}")
         sys.exit(1)
