@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="The den in three bands: open water and glass sponges fixed to rock in the far band, arms in the middle band curling, uncurling, reaching, and sorting shells one by one, and a shell spiral at the den mouth in the near band nudged by an arm tip and settling a short way off, while the den, the shelf, and the teapot stay still and bubbles only rise past">
+<rect x="0" y="0" width="1200" height="300" fill="#121636"/>
+<polygon points="200,0 300,0 380,240 260,240" fill="#aab260" opacity="0.14"/>
+<polygon points="640,0 760,0 860,240 720,240" fill="#aab260" opacity="0.12"/>
+<g fill="#f0eec8"><circle cx="250" cy="60" r="2"><animate attributeName="cy" values="60;150;60" dur="19s" repeatCount="indefinite"/></circle><circle cx="700" cy="36" r="2"><animate attributeName="cy" values="36;130;36" dur="23s" repeatCount="indefinite"/></circle><circle cx="806" cy="90" r="2"><animate attributeName="cy" values="90;170;90" dur="17s" repeatCount="indefinite"/></circle></g>
+<g>
+<rect x="90" y="90" width="26" height="130" fill="#c4c8bc"/><ellipse cx="103" cy="88" rx="15" ry="6" fill="none" stroke="#eee8d6" stroke-width="3"/>
+<rect x="1010" y="70" width="30" height="150" fill="#c4c8bc"/><ellipse cx="1025" cy="68" rx="17" ry="6" fill="none" stroke="#eee8d6" stroke-width="3"/>
+<rect x="1060" y="110" width="22" height="110" fill="#c4c8bc"/><ellipse cx="1071" cy="108" rx="13" ry="5" fill="none" stroke="#eee8d6" stroke-width="3"/>
+</g>
+<polygon points="0,150 820,138 880,176 700,196 240,200 40,190 0,198" fill="#222436"/>
+<path d="M300 196 A170 92 0 0 1 640 196 Z" fill="#282a3e"/>
+<path d="M348 196 A122 66 0 0 1 592 196 Z" fill="#04050e"/>
+<g stroke="#4a3e7a" stroke-width="15" fill="none" stroke-linecap="round">
+<path d="M392 196 Q440 150 500 178"><animate attributeName="d" values="M392 196 Q440 150 500 178;M392 196 Q446 138 512 172;M392 196 Q440 150 500 178" dur="8s" repeatCount="indefinite"/></path>
+<path d="M520 196 Q560 158 612 184"><animate attributeName="d" values="M520 196 Q560 158 612 184;M520 196 Q566 148 622 178;M520 196 Q560 158 612 184" dur="9s" begin="1s" repeatCount="indefinite"/></path>
+</g>
+<g fill="#eee8d6"><circle cx="452" cy="162" r="3"/><circle cx="486" cy="170" r="3"/><circle cx="566" cy="168" r="3"/><circle cx="598" cy="178" r="3"/></g>
+<g fill="none" stroke="#dfe4ea" stroke-width="2"><circle cx="700" cy="200" r="6"><animate attributeName="cy" values="200;120;30" dur="11s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.5;0" dur="11s" repeatCount="indefinite"/></circle><circle cx="730" cy="220" r="4"><animate attributeName="cy" values="220;140;60" dur="13s" begin="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.5;0" dur="13s" begin="3s" repeatCount="indefinite"/></circle></g>
+<rect x="0" y="252" width="1200" height="48" fill="#3e3e3c"/>
+<g>
+<ellipse cx="150" cy="238" rx="34" ry="24" fill="#a8a8a4"/><polygon points="120,232 98,224 104,240 120,244" fill="#a8a8a4"/><polygon points="100,226 112,231 101,238" fill="#e8b33d"/>
+</g>
+<g fill="#808280"><path d="M820 252 A46 22 0 0 1 912 252 Z"/><path d="M832 236 A34 16 0 0 1 900 236 Z"/></g>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;14 2;14 2" keyTimes="0;0.4;1" dur="10s" repeatCount="indefinite"/>
+<path d="M470 262 A26 20 0 0 1 522 262 Z" fill="#eee8d6"/>
+<g stroke="#5a584e" stroke-width="2"><line x1="496" y1="262" x2="474" y2="246"/><line x1="496" y1="262" x2="496" y2="243"/><line x1="496" y1="262" x2="518" y2="246"/></g>
+</g>
+<path d="M560 210 Q600 240 520 258" stroke="#4a3e7a" stroke-width="13" fill="none" stroke-linecap="round"><animate attributeName="d" values="M560 210 Q600 240 520 258;M560 210 Q606 238 534 256;M560 210 Q600 240 520 258" dur="10s" repeatCount="indefinite"/></path>
+<g fill="#eee8d6"><path d="M300 266 A18 14 0 0 1 336 266 Z"/><path d="M356 266 A22 17 0 0 1 400 266 Z"/><path d="M660 266 A18 14 0 0 1 696 266 Z"/></g>
+</svg>

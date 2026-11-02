@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40" role="img" aria-label="Minor separator: a short centred run of tube worm crowns opening and closing along a verdigris line">
+<rect x="0" y="0" width="1200" height="40" fill="#121636"/>
+<line x1="480" y1="30" x2="720" y2="30" stroke="#43b3a2" stroke-width="2"/>
+<g stroke="#eee8d6" stroke-width="3" fill="none">
+<path d="M530 30 L522 12 M530 30 L530 10 M530 30 L538 12"/><path d="M600 30 L592 12 M600 30 L600 10 M600 30 L608 12"/><path d="M670 30 L662 12 M670 30 L670 10 M670 30 L678 12"/>
+</g>
+</svg>
